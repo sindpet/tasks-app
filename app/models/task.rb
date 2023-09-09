@@ -8,5 +8,5 @@ class Task < ApplicationRecord
   has_many :tags, through: :task_tags
 
   validates :title, presence: true
-  validates :is_done, presence: true
+  validates :is_done, inclusion: [true, false]
 end

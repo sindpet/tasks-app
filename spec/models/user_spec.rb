@@ -3,28 +3,15 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   let(:user) { build(:user) }
 
-  context "with all required attributes" do
-    it "is valid" do
-      expect(user).to be_valid
-    end
-
-    it "saves to db" do
-      expect(user.save).to eq(true)
-    end
+  context "associations" do
+    it { should have_many(:projects).dependent(:destroy) }
+    it { should have_many(:tags).dependent(:destroy) }
+    it { should have_many(:tasks).dependent(:destroy) }
   end
 
-  context "without first name" do
-    it "is invalid" do
-      user.first_name = ""
-      expect(user).not_to be_valid
-    end
-  end
-
-  context "without last name" do
-    it "is invalid" do
-      user.last_name = ""
-      expect(user).not_to be_valid
-    end
+  context "validations" do
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
   end
 
   context "with too short password" do
@@ -35,8 +22,14 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "invalid" do
-    it "won't save to db" do
+  context "with all required attributes" do
+    it "saves to db" do
+      expect(user.save).to eq(true)
+    end
+  end
+
+  context "with invalid attribute" do
+    it "doesn't save to db" do
       user.first_name = ""
       expect(user.save).to eq(false)
     end

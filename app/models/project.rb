@@ -4,5 +4,5 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   validates :title, presence: true
-  validates :position, presence: true, inclusion: { in: 1.. }
+  validates :position, presence: true #, inclusion: { in: 1.. }
 end
