@@ -34,7 +34,7 @@
                 Add new
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><%= link_to "Project", "", class: "dropdown-item" %></li>
+                <li><%= link_to "Project", new_project_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Task", "", class: "dropdown-item" %></li>
                 <li><%= link_to "Tag", "", class: "dropdown-item" %></li>
               </ul>
@@ -61,7 +61,7 @@
         <div class="col-3 overflow-y-auto my-3">
           <div class="row justify-content-center">
             <div class="col-10 p-3">
-              Projects
+              <%= link_to "Projects", projects_path %>
             </div>
             <div class="col-10 p-3">
               Tasks

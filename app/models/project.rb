@@ -5,4 +5,6 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :position, presence: true #, inclusion: { in: 1.. }
+
+  default_scope { order(position: :asc) }
 end
