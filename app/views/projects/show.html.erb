@@ -1,5 +1,15 @@
-<h1><%= @project.title %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h1>Project details</h1>
+        <%= render "project", project: @project %>
 
-<ul>
-  <li>Position: <%= @project.position %></li>
-</ul>
+        <div class="mt-5">
+          <%= link_to "Edit this project", edit_project_path(@project) %>
+
+          <%= button_to "Destroy this project", @project, method: :delete,
+            form: { data: { turbo_confirm: "Are you sure?" } } %>
+        </div>
+    </div>
+  </div>
+</div>

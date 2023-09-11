@@ -1,9 +1,10 @@
-<h1>Tags</h1>
-
-<ul>
-  <% @tags.each do |tag| %>
-    <li>
-      <%= link_to tag.title, tag %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Tags</h1>
+        <% @tags.each do |tag| %>
+          <%= render "tag", tag: tag %>
+        <% end %>
+    </div>
+  </div>
+</div>

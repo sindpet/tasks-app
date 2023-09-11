@@ -60,18 +60,19 @@
       <div class="row vh-100">
         <div class="col-3 overflow-y-auto my-3">
           <div class="row justify-content-center">
+            <% links_class = "fw-semibold fs-5 link-dark link-underline-opacity-25 link-underline-opacity-75-hover" %>
             <div class="col-10 p-3">
-              <%= link_to "Projects", projects_path %>
+              <%= link_to "Projects", projects_path, class: links_class %>
             </div>
             <div class="col-10 p-3">
-              <%= link_to "Tasks", tasks_path %>
+              <%= link_to "Tasks", tasks_path, class: links_class %>
             </div>
             <div class="col-10 p-3">
-              <%= link_to "Tags", tags_path %>
+              <%= link_to "Tags", tags_path, class: links_class %>
             </div>
           </div>
         </div>
-        <div class="col-9 h-100 overflow-y-auto">
+        <div class="col-9 overflow-y-auto my-3">
           <%= yield %>
         </div>
       </div>

@@ -1,2 +1,28 @@
-<div id="<%= dom_id task %>">
+<div class="container shadow-sm bg-body-tertiary rounded my-3" id="<%= dom_id task %>">
+  <div class="row">
+    <div class="col">
+      <h3>
+        <%= link_to task.title, task_path(task),
+          class: "link-dark link-underline-opacity-25 link-underline-opacity-75-hover" %>
+      </h3>
+      <div>
+        <% task.tags.each do |tag| %>
+          <%= render "tags/tag", tag: tag %>
+        <% end %>
+      </div>
+
+
+      <div class="mt-2">
+        <ul>
+          <li>Description: <%= task.description %></li>
+          <% if task.file.attached? %>
+            <li>Attached file: <%= link_to task.file.filename, rails_blob_path(task.file, disposition: "attachment") %></li>
+          <% end %>
+
+          <li>Assigned to project: <%= link_to task.project.title, project_path(task.project) %></li>
+          <li>Is done?: <%= task.is_done %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
