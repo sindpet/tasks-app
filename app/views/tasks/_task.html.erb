@@ -19,7 +19,9 @@
             <li>Attached file: <%= link_to task.file.filename, rails_blob_path(task.file, disposition: "attachment") %></li>
           <% end %>
 
-          <li>Assigned to project: <%= link_to task.project.title, project_path(task.project) %></li>
+          <% if task.project %>
+            <li>Assigned to project: <%= link_to task.project.title, project_path(task.project) %></li>
+          <% end %>
           <li>Is done?: <%= task.is_done %></li>
         </ul>
       </div>

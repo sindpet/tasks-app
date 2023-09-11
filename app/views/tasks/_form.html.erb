@@ -8,8 +8,8 @@
     <%= f.input :is_done, required: true %>
     <%= f.input :file %>
 
-    <%= f.association :project %>
-    <%= f.association :tags, as: :check_boxes %>
+    <%= f.association :project, collection: current_user.projects %>
+    <%= f.association :tags, collection: current_user.tags, as: :check_boxes %>
   </div>
 
   <div class="form-actions mt-4">
