@@ -35,8 +35,8 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><%= link_to "Project", new_project_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Task", "", class: "dropdown-item" %></li>
-                <li><%= link_to "Tag", "", class: "dropdown-item" %></li>
+                <li><%= link_to "Task", new_task_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Tag", new_tag_path, class: "dropdown-item" %></li>
               </ul>
             </li>
           </ul>
@@ -64,10 +64,10 @@
               <%= link_to "Projects", projects_path %>
             </div>
             <div class="col-10 p-3">
-              Tasks
+              <%= link_to "Tasks", tasks_path %>
             </div>
             <div class="col-10 p-3">
-              Tags
+              <%= link_to "Tags", tags_path %>
             </div>
           </div>
         </div>
