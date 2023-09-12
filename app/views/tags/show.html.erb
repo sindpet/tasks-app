@@ -2,14 +2,8 @@
   <div class="row">
     <div class="col">
       <h1>Tag details</h1>
-        <%= render "tag", tag: @tag %>
 
-        <div class="mt-5">
-          <%= link_to "Edit this tag", edit_tag_path(@tag) %>
-
-          <%= button_to "Destroy this tag", @tag, method: :delete,
-            form: { data: { turbo_confirm: "Are you sure?" } } %>
-        </div>
+      <%= render "tag", tag: @tag %>
     </div>
   </div>
 </div>
