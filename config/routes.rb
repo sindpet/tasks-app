@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "projects/:project_id/tasks", to: "tasks#index", as: :projects_tasks
   resources :tasks
   resources :tags
+
+  get "/search", to: "search#index"
   # Defines the root path route ("/")
   root "tasks#index"
 end

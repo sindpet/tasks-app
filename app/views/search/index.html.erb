@@ -1,0 +1,22 @@
+<h1>Search results</h1>
+
+<% if params[:q] %>
+  <h2>Projects</h2>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.title, project %></li>
+    <% end %>
+  </ul>
+  <h2>Tasks</h2>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= link_to task.title, task %></li>
+    <% end %>
+  </ul>
+  <h2>Tags</h2>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li><%= link_to tag.title, tag %></li>
+    <% end %>
+  </ul>
+<% end %>
