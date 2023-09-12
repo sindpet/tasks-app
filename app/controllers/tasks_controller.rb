@@ -1,8 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :validate_project_id, only: [:index]
 
   def index
-    @tasks = current_user.tasks
+    if params[:project_id]
+      @tasks = current_user.tasks.where(project_id: params[:project_id])
+    else
+      @tasks = current_user.tasks
+    end
   end
 
   def show
@@ -28,10 +33,13 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to @task
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @task.update(task_params)
+        format.turbo_stream
+        format.html { redirect_to @task }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -50,5 +58,9 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find_by(id: params[:id])
 
     redirect_to tasks_path if !@task
+  end
+
+  def validate_project_id
+    redirect_to projects_path if params[:project_id] && ! current_user.projects.find_by(id: params[:project_id])
   end
 end
