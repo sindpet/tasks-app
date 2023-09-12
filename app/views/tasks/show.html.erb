@@ -1,15 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-9">
       <h1>Task details</h1>
-        <%= render "task", task: @task %>
 
-        <div class="mt-5">
-          <%= link_to "Edit this task", edit_task_path(@task) %>
-
-          <%= button_to "Destroy this task", @task, method: :delete,
-            form: { data: { turbo_confirm: "Are you sure?" } } %>
-        </div>
+      <%= render "task", task: @task %>
     </div>
   </div>
 </div>
