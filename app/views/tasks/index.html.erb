@@ -2,9 +2,20 @@
   <div class="row">
     <div class="col-9">
       <h1>Tasks</h1>
-        <% @tasks.each do |task| %>
-          <%= render "task", task: task %>
-        <% end %>
+      <div class="row d-block">
+        <div class="col d-flex justify-content-center">
+          <div class="btn-group btn-group-justified" role="group">
+            <%= link_to "All", request.params.except(:scope), class: "btn btn-outline-dark" %>
+            <%= link_to "Finished", request.params.merge(scope: "finished"), class: "btn btn-outline-dark" %>
+            <%= link_to "Unfinished", request.params.merge(scope: "unfinished"), class: "btn btn-outline-dark" %>
+          </div>
+        </div>
+        <div class="col">
+          <% @tasks.each do |task| %>
+            <%= render "task", task: task %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

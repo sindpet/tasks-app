@@ -3,11 +3,12 @@ class TasksController < ApplicationController
   before_action :validate_project_id, only: [:index]
 
   def index
-    if params[:project_id]
-      @tasks = current_user.tasks.where(project_id: params[:project_id])
-    else
-      @tasks = current_user.tasks
-    end
+    @tasks = current_user.tasks
+
+    @tasks = @tasks.where(project_id: params[:project_id]) if params.has_key?(:project_id)
+
+    @tasks = @tasks.finished if params[:scope] == "finished"
+    @tasks = @tasks.unfinished if params[:scope] == "unfinished"
   end
 
   def show

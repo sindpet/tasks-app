@@ -11,4 +11,6 @@ class Task < ApplicationRecord
   validates :is_done, inclusion: [true, false]
 
   default_scope { order(is_done: :asc) }
+  scope :finished, -> { where(is_done: true) }
+  scope :unfinished, -> { where(is_done: false) }
 end
