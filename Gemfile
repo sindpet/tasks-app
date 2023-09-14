@@ -49,6 +49,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "devise", "~> 4.9"
+gem 'rails-i18n'
 gem 'pagy', '~> 6.0'
 gem 'simple_form'
 gem 'slim'

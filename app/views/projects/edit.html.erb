@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h1>Edit project</h1>
+      <h1><%= t("global.edit") %> <%= t("activerecord.models.project", count: 1).downcase %></h1>
 
       <%= render "form", project: @project %>
     </div>

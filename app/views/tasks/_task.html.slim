@@ -36,9 +36,9 @@ div class="container shadow-sm bg-body-tertiary rounded my-3 #{opacity_class}" i
 
       div class="mt-2"
         ul
-          li Description: #{ task.description }
+          li #{t("activerecord.attributes.task.description")}: #{ task.description }
           - if task.file.attached?
-            li Attached file: #{ link_to task.file.filename, rails_blob_path(task.file, disposition: "attachment") }
+            li #{t(".attached_file")}: #{ link_to task.file.filename, rails_blob_path(task.file, disposition: "attachment") }
           - if task.project
-            li Assigned to project: #{ link_to task.project.title, project_path(task.project) }
-          li Is done?: #{ task.is_done }
+            li #{t(".assigned_to_project")}: #{ link_to task.project.title, project_path(task.project) }
+          li #{t("activerecord.attributes.task.is_done")}: #{ task.is_done }

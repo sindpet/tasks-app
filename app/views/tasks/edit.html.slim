@@ -1,7 +1,10 @@
 .container
   .row
     .col-6
-      h1 Edit task
+      h1
+        = t("global.edit")
+        |<
+        = t("activerecord.models.task", count: 1).downcase
 
       = render "form", task: @task
 

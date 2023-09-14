@@ -31,12 +31,12 @@
 
       <div class="mt-2">
         <ul>
-          <li>Position: <%= project.position %></li>
+          <li><%= t("activerecord.attributes.project.position")%>: <%= project.position %></li>
         </ul>
       </div>
 
       <h4>
-        <%= link_to "List of tasks", projects_tasks_path(project.id),
+        <%= link_to t(".list_of_tasks"), projects_tasks_path(project.id),
               class: "link-dark link-underline-opacity-25 link-underline-opacity-75-hover" %>
       </h4>
 

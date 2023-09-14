@@ -1,13 +1,13 @@
 .container
   .row
     .col-9
-      h1 Tasks
+      h1 = t("activerecord.models.task", count: 2)
 
       .d-flex.justify-content-center
         .btn-group.btn-group-justified role="group"
-          = link_to "All", request.params.except(:scope, :page), class: "btn btn-outline-dark"
-          = link_to "Finished", request.params.except(:page).merge(scope: "finished"), class: "btn btn-outline-dark"
-          = link_to "Unfinished", request.params.except(:page).merge(scope: "unfinished"), class: "btn btn-outline-dark"
+          = link_to t(".all"), request.params.except(:scope, :page), class: "btn btn-outline-dark"
+          = link_to t(".finished"), request.params.except(:page).merge(scope: "finished"), class: "btn btn-outline-dark"
+          = link_to t(".unfinished"), request.params.except(:page).merge(scope: "unfinished"), class: "btn btn-outline-dark"
 
       div
         - @tasks.each do |task|

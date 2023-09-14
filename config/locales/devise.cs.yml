@@ -1,0 +1,24 @@
+cs:
+  devise:
+    failure:
+      invalid: "Nesprávný %{authentication_keys} nebo heslo."
+      not_found_in_database: "Nesprávný %{authentication_keys} nebo heslo."
+      unauthenticated: "Pro pokračování je nutno se přihlásit nebo zaregistrovat."
+
+    registrations:
+      signed_up: "Vítejte! Byli jste úspěšně zaregistrováni."
+
+      edit:
+        cancel_my_account: "Zrušit účet"
+        current_password_hint: "potřebujeme vaše aktuální heslo pro uložení změn"
+        edit_user: "Upravit uživatele"
+        password_hint: "ponechte prázdné, pokud jej nechcete změnit"
+      new:
+        password_hint: "nejméně %{minimum_password_length} znaků"
+        sign_up: "Zaregistrovat se"
+
+    sessions:
+      signed_in: "Přihlášení proběhlo úspěšně."
+
+      new:
+        log_in: "Přihlásit se"

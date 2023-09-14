@@ -1,0 +1,88 @@
+cs:
+  activerecord:
+    models:
+      project:
+        one: "Projekt"
+        other: "Projekty"
+      tag:
+        one: "Tag"
+        other: "Tagy"
+      task:
+        one: "Úkol"
+        other: "Úkoly"
+      user:
+        one: "Uživatel"
+        other: "Uživatelé"
+    attributes:
+      project:
+        title: "Název"
+        position: "Pozice"
+      tag:
+        title: "Název"
+      task:
+        title: "Název"
+        description: "Popis"
+        is_done: "Dokončen?"
+        file: "Soubor"
+        project: "Projekt"
+        tags: "Tagy"
+      user:
+        first_name: "Křestní jméno"
+        last_name: "Příjmení"
+        email: "Email"
+        password: "Heslo"
+        password_confirmation: "Potvrďte heslo"
+        current_password: "Aktuální heslo"
+        remember_me: "Zapamatovat si"
+
+  global:
+    back: "Zpět"
+    edit: "Upravit"
+    new: "Nový"
+    update: "Aktualizovat"
+
+  helpers:
+    submit:
+      create: "Vytvořit"
+      update: "Uložit změny"
+
+  layouts:
+    application:
+      account: "Účet"
+      add_new: "Přidat nový"
+      edit_my_profile: "Upravit můj profil"
+      home: "Domů"
+      log_out: "Odhlásit se"
+      project:
+        one: "Projekt"
+        other: "Projekty"
+      search: "Hledat"
+      tag:
+        one: "Tag"
+        other: "Tagy"
+      task:
+        one: "Úkol"
+        other: "Úkoly"
+    devise:
+      home: "Domů"
+  projects:
+    project:
+      list_of_tasks: "Seznam úkolů"
+    show:
+      project_details: "Detail projektu"
+  search:
+    index:
+      search_results: "Výsledky vyhledávání"
+  tags:
+    show:
+      tag_details: "Detail tagu"
+  tasks:
+    index:
+      all: "Všechny"
+      finished: "Dokončené"
+      unfinished: "Nedokončené"
+    show:
+      task_details: "Detail úkolu"
+    task:
+      assigned_to_project: "Přiřazen k projektu"
+      attached_file: "Přiložený soubor"

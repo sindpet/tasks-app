@@ -30,4 +30,90 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      project:
+        one: "Project"
+        other: "Projects"
+      tag:
+        one: "Tag"
+        other: "Tags"
+      task:
+        one: "Task"
+        other: "Tasks"
+      user:
+        one: "User"
+        other: "Users"
+    attributes:
+      project:
+        title: "Title"
+        position: "Position"
+      tag:
+        title: "Title"
+      task:
+        title: "Title"
+        description: "Description"
+        is_done: "Is done?"
+        file: "File"
+        project: "Project"
+        tags: "Tags"
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm password"
+        current_password: "Current password"
+        remember_me: "Remember me"
+
+  global:
+    back: "Back"
+    edit: "Edit"
+    new: "New"
+    update: "Update"
+
+  helpers:
+    submit:
+      create: "Create"
+      update: "Save changes"
+
+  layouts:
+    application:
+      account: "Account"
+      add_new: "Add new"
+      edit_my_profile: "Edit my profile"
+      home: "Home"
+      log_out: "Log out"
+      project:
+        one: "Project"
+        other: "Projects"
+      search: "Search"
+      tag:
+        one: "Tag"
+        other: "Tags"
+      task:
+        one: "Task"
+        other: "Tasks"
+    devise:
+      home: "Home"
+  projects:
+    project:
+      list_of_tasks: "List of tasks"
+    show:
+      project_details: "Project details"
+  search:
+    index:
+      search_results: "Search results"
+  tags:
+    show:
+      tag_details: "Tag details"
+  tasks:
+    index:
+      all: "All"
+      finished: "Finished"
+      unfinished: "Unfinished"
+    show:
+      task_details: "Task details"
+    task:
+      assigned_to_project: "Assigned to project"
+      attached_file: "Attached file"

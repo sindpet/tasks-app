@@ -1,19 +1,19 @@
-<h1>Search results</h1>
+<h1><%= t(".search_results") %></h1>
 
 <% if params[:q] %>
-  <h2>Projects</h2>
+  <h2><%= t("activerecord.models.project", count: 2) %></h2>
   <ul>
     <% @projects.each do |project| %>
       <li><%= link_to highlight(project.title, params[:q], highlighter: '<strong>\1</strong>'), project %></li>
     <% end %>
   </ul>
-  <h2>Tasks</h2>
+  <h2><%= t("activerecord.models.task", count: 2) %></h2>
   <ul>
     <% @tasks.each do |task| %>
       <li><%= link_to highlight(task.title, params[:q], highlighter: '<strong>\1</strong>'), task %></li>
     <% end %>
   </ul>
-  <h2>Tags</h2>
+  <h2><%= t("activerecord.models.tag", count: 2) %></h2>
   <ul>
     <% @tags.each do |tag| %>
       <li><%= link_to highlight(tag.title, params[:q], highlighter: '<strong>\1</strong>'), tag %></li>
