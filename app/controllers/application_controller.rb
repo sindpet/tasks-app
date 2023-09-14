@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  include Pagy::Backend
+
   private
 
   def layout_by_resource

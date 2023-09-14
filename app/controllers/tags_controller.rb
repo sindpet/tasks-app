@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tags = current_user.tags
+    @pagy, @tags = pagy(current_user.tags)
   end
 
   def show

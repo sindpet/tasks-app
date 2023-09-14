@@ -9,6 +9,8 @@ class TasksController < ApplicationController
 
     @tasks = @tasks.finished if params[:scope] == "finished"
     @tasks = @tasks.unfinished if params[:scope] == "unfinished"
+
+    @pagy, @tasks = pagy(@tasks)
   end
 
   def show
