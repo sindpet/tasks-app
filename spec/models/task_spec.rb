@@ -30,4 +30,24 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  context "scopes" do
+    let!(:user) { create(:user) }
+    let!(:unfinished_task) { create(:task, user: user, is_done: false) }
+    let!(:finished_task) { create(:task, user: user, is_done: true) }
+
+    it "sorts by is_done ascending (false first)" do
+      expect(Task.all.first).to eq(unfinished_task)
+      expect(Task.all.last).to eq(finished_task)
+    end
+
+    it "shows only finished task in #finished scope" do
+      expect(Task.finished.first).to eq(finished_task)
+      expect(Task.finished.count).to eq(1)
+    end
+
+    it "shows only unfinished task in #unfinished scope" do
+      expect(Task.unfinished.first).to eq(unfinished_task)
+      expect(Task.unfinished.count).to eq(1)
+    end
+  end
 end
