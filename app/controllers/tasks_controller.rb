@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :validate_project_id, only: [:index]
 
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.includes(:project, :file_attachment, :tags)
 
     @tasks = @tasks.where(project_id: params[:project_id]) if params.has_key?(:project_id)
 

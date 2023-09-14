@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @pagy, @projects = pagy(current_user.projects)
+    @pagy, @projects = pagy(current_user.projects.includes(tasks: [:tags, :file_attachment]))
   end
 
   def show
-
+    @project = current_user.projects.includes(tasks: [:tags, :file_attachment]).find_by(id: params[:id])
   end
 
   def new
@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
   end
 
   private
+
   def project_params
     params.require(:project).permit(:title, :position)
   end
