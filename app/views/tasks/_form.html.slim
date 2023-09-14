@@ -1,0 +1,14 @@
+= simple_form_for task do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :title
+    = f.input :description
+    = f.input :is_done, required: true
+    = f.input :file
+    = f.association :project, collection: current_user.projects
+    = f.association :tags, collection: current_user.tags, as: :check_boxes
+
+  .form-actions.mt-4
+    = f.button :submit, class: "btn-dark", data: { turbo: false }
