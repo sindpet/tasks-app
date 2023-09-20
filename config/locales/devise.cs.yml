@@ -5,6 +5,11 @@ cs:
       not_found_in_database: "Nesprávný %{authentication_keys} nebo heslo."
       unauthenticated: "Pro pokračování je nutno se přihlásit nebo zaregistrovat."
 
+    passwords:
+      new:
+        forgot_your_password: "Zapomněli jste heslo?"
+        send_reset_instructions: "Zaslat instrukce pro resetování hesla"
+
     registrations:
       signed_up: "Vítejte! Byli jste úspěšně zaregistrováni."
 
