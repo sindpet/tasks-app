@@ -47,8 +47,8 @@ class TagsController < ApplicationController
   end
 
   def set_tag
-    @tag = current_user.tags.find_by(id: params[:id])
+    @tag = current_user.tags.find_by!(id: params[:id])
 
-    redirect_to tags_path if !@tag
+    # redirect_to tags_path if !@tag
   end
 end

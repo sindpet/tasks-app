@@ -2,11 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @pagy, @projects = pagy(current_user.projects.includes(tasks: [:tags, :file_attachment]))
+    @projects = current_user.projects.includes(tasks: [:tags, :file_attachment])
+    @pagy, @projects = pagy(@projects)
   end
 
   def show
-    @project = current_user.projects.includes(tasks: [:tags, :file_attachment]).find_by(id: params[:id])
+    @project = current_user.projects.includes(tasks: [:tags, :file_attachment]).find_by!(id: params[:id])
   end
 
   def new
@@ -49,8 +50,8 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = current_user.projects.find_by(id: params[:id])
+    @project = current_user.projects.find_by!(id: params[:id])
 
-    redirect_to projects_path if !@project
+    # redirect_to projects_path if !@project
   end
 end

@@ -5,10 +5,18 @@ class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.includes(:project, :file_attachment, :tags)
 
-    @tasks = @tasks.where(project_id: params[:project_id]) if params.has_key?(:project_id)
+    if params.has_key?(:project_id)
+      @tasks = @tasks.where(project_id: params[:project_id])
+    end
 
-    @tasks = @tasks.finished if params[:scope] == "finished"
-    @tasks = @tasks.unfinished if params[:scope] == "unfinished"
+    if params.has_key?(:scope)
+      @tasks = case params[:scope].to_sym
+      when :finished
+        @tasks.finished
+      when :unfinished
+        @tasks.unfinished
+      end
+    end
 
     @pagy, @tasks = pagy(@tasks)
   end
@@ -18,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_user.tasks.build()
+    @task = current_user.tasks.build
   end
 
   def create
@@ -58,12 +66,12 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = current_user.tasks.find_by(id: params[:id])
+    @task = current_user.tasks.find_by!(id: params[:id])
 
-    redirect_to tasks_path if !@task
+    # redirect_to tasks_path if !@task
   end
 
   def validate_project_id
-    redirect_to projects_path if params[:project_id] && ! current_user.projects.find_by(id: params[:project_id])
+    params.has_key?(:project_id) && current_user.projects.find_by!(id: params[:project_id])
   end
 end
